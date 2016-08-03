@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Home Automation by OronNadiv</title>
+    <title>Home Automation by Oron Nadiv</title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@
     <div class="inner clearfix">
         <section id="main-content">
             <p>
-                <strong>The home automation includes many differnet functions such as alarm system, garage door opener,
-                    siren and cameras control, users management, and more.
+                <strong>The home automation includes many different functions such as an alarm system, garage door
+                    opener, siren and camera control, and user management.
                 </strong>
             </p>
             <p>
@@ -81,15 +81,15 @@
                     <ul>
                         <li>It saves the alarm state (armed or not armed).</li>
                         <li>
-                            It received reports from the motion sensor raspberry pi clients when a motions are detected.
+                            It receives reports from the motion sensor raspberry pi clients when motion is detected.
                         </li>
-                        <li>It will turn on the sirens if a motion is detected while the alarm is armed.</li>
+                        <li>It will turn the siren if motion is detected while the alarm is armed.</li>
                         <li>
-                            It will send emails, sms and make phone calls when a motion is detected while alarm is
+                            It will send emails, sms and make phone calls when motion is detected while alarm is
                             armed.
                         </li>
                         <li>
-                            It will ask the camera api server take photos when a motion is detected while alarm is
+                            It will ask the camera api server to take photos when motion is detected while alarm is
                             armed.
                         </li>
                     </ul>
@@ -102,7 +102,7 @@
                         <li>It provides a list of all taken photos.</li>
                         <li>It accepts requests from the user to take photos.</li>
                         <li>
-                            It accepts requests from the alarm system api to take photos when a motion is detected or
+                            It accepts requests from the alarm system api to take photos when motion is detected or
                             garage door was opened while armed.
                         </li>
                         <li>It sends push notification to the raspberry pi camera clients asking to take photo(s).</li>
@@ -114,9 +114,9 @@
                     <ul>
                         <li>It saves the garage door state (opened or closed).</li>
                         <li>It sends commands to open or close the garage door.</li>
-                        <li>It notifies the users in case the garage door is left open.</li>
+                        <li>It notifies the users if the garage door is left open.</li>
                         <li>
-                            It will notify the alarm server api server when the door is opening or closing in case the
+                            It will notify the alarm server api server when the door is opening or closing if the
                             alarm is armed.
                         </li>
                     </ul>
@@ -139,7 +139,7 @@
                     handles outgoing communications. Main functions are:
                     <ul>
                         <li>
-                            It sends emails using Mailgun if garage door is left open, garage door is openeing or a
+                            It sends emails using Mailgun if garage door is left open, garage door is opening or a
                             motion is detected while alarm is armed.
                         </li>
                         <li>
@@ -288,7 +288,7 @@ npm install</code></pre>
                     </p>
                 </li>
 
-                <li>Step 9: Install execution script. Each raspberry pi client repository contain an execution template
+                <li>Step 9: Install execution script. Each raspberry pi client repository contains an execution template
                     script. Copy and edit the script in nano.
                     <pre><code>cp &lt;repository&gt;/scripts/*.sh ~</code></pre>
                 </li>
@@ -313,15 +313,10 @@ cp &lt;repository&gt;/scripts/*.conf /etc/supervisor/conf.d/</code></pre>
                 <pre><code>openssl genrsa -out private_key.pem 2048
 openssl rsa -in private_key.pem -pubout -out public_key.pem</code></pre>
             </ul>
+            <h3 class="repo-owner" style="text-align: center">Built and maintained by <a
+                    href="https://github.com/OronNadiv">Oron Nadiv</a>.
+            </h3>
         </section>
-
-        <aside id="sidebar">
-            <p class="repo-owner"><a href="https://github.com/OronNadiv/home-automation"></a> Maintained by <a
-                    href="https://github.com/OronNadiv">OronNadiv</a>.</p>
-
-            <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme
-                by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
     </div>
 </div>
 </body>
