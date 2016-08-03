@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Home Automation by OronNadiv</title>
+</head>
+
+<body>
+<header>
+    <div class="inner">
+        <h1>Home Automation</h1>
+        <h2></h2>
+        <a href="https://github.com/OronNadiv/home-automation" class="button">
+            <small>View project on</small>
+            GitHub</a>
+    </div>
+</header>
+
+<div id="content-wrapper">
+    <div class="inner clearfix">
+        <section id="main-content">
+            <p>
+                <strong>The home automation includes many differnet functions such as alarm system, garage door opener,
+                    siren and cameras control, users management, and more.
+                </strong>
+            </p>
+            <p>
+                <img src="images/ha.gif" style="display: block;margin-left: auto;margin-right: auto">
+            </p>
+
+            <p>The project contains the following repositories:</p>
+
+            <h4>
+                <a id="raspberry-pi-clients" class="anchor" href="#raspberry-pi-clients" aria-hidden="true"><span
+                        aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry Pi Clients</h4>
+
+            <ul>
+                <li>
+                    <a href="https://github.com/OronNadiv/alarm-siren-raspberry-client">Alarm Siren Raspberry Pi
+                        Client</a> - raspberry-pi client for the alarm's siren.
+                </li>
+                <br/>
+                <li>
+                    <a href="https://github.com/OronNadiv/camera-raspberry-client">Camera Raspberry Pi Client</a> -
+                    raspberry-pi client for the camera.
+                </li>
+                <br/>
+                <li>
+                    <a href="https://github.com/OronNadiv/garage-door-raspberry-client">Garage Door Raspberry Pi
+                        Client</a> - raspberry-pi client for the garage door.
+                </li>
+                <br/>
+                <li>
+                    <a href="https://github.com/OronNadiv/motion-sensor-raspberry-client">Motion Sensor Raspberry Pi
+                        Client</a> - raspberry-pi client for the alarm's motion sensor.
+                </li>
+            </ul>
+
+            <h4>
+                <a id="servers" class="anchor" href="#servers" aria-hidden="true">
+                    <span aria-hidden="true" class="octicon octicon-link"></span>
+                </a>
+                Servers
+            </h4>
+
+            <ul>
+                <li>
+                    <a href="https://github.com/OronNadiv/alarm-system-api">Alarm System API</a> - Back-end server that
+                    handles apis for the alarm system. Main functions are:
+                    <ul>
+                        <li>It saves the alarm state (armed or not armed).</li>
+                        <li>
+                            It received reports from the motion sensor raspberry pi clients when a motions are detected.
+                        </li>
+                        <li>It will turn on the sirens if a motion is detected while the alarm is armed.</li>
+                        <li>
+                            It will send emails, sms and make phone calls when a motion is detected while alarm is
+                            armed.
+                        </li>
+                        <li>
+                            It will ask the camera api server take photos when a motion is detected while alarm is
+                            armed.
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="https://github.com/OronNadiv/camera-api">Camera API</a> - Back-end server that handles the
+                    camera apis. Main functions are:
+                    <ul>
+                        <li>It provides a list of all taken photos.</li>
+                        <li>It accepts requests from the user to take photos.</li>
+                        <li>
+                            It accepts requests from the alarm system api to take photos when a motion is detected or
+                            garage door was opened while armed.
+                        </li>
+                        <li>It sends push notification to the raspberry pi camera clients asking to take photo(s).</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://github.com/OronNadiv/garage-door-api">Garage Door API</a> - Back-end server that
+                    handles apis for the garage door. Main functions are:
+                    <ul>
+                        <li>It saves the garage door state (opened or closed).</li>
+                        <li>It sends commands to open or close the garage door.</li>
+                        <li>It notifies the users in case the garage door is left open.</li>
+                        <li>
+                            It will notify the alarm server api server when the door is opening or closing in case the
+                            alarm is armed.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://github.com/OronNadiv/authentication-api">Authentication</a> - Back-end server that
+                    handles authentications and permissions. Main functions are:
+                    <ul>
+                        <li>
+                            It issues JWT (Javascript Web Token) to other back-end servers, UI and raspberry pi
+                            clients.
+                        </li>
+                        <li>
+                            It allows creation of new users, enabling/disabling access, changing permissions and more.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://github.com/OronNadiv/notifications-api">Notifications</a> - Back-end server that
+                    handles outgoing communications. Main functions are:
+                    <ul>
+                        <li>
+                            It sends emails using Mailgun if garage door is left open, garage door is openeing or a
+                            motion is detected while alarm is armed.
+                        </li>
+                        <li>
+                            It sends text messages if one of the previous conditions are met.
+                        </li>
+                        <li>
+                            It makes phone calls if one of the previous conditions are met.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://github.com/OronNadiv/push-api">Push</a> - Back-end server that handles Socket-IO
+                    communication between the clients and the other API servers. It uses Redis's Pub-Sub mechanism for
+                    scalability and distributes architecture.
+                </li>
+                <br/>
+                <li>
+                    <a href="https://github.com/OronNadiv/storage-api">Storage</a> - Back-end server that handles S3
+                    storage. It provides api to store and fetch the camera photos.
+                </li>
+                <br/>
+                <li>
+                    <a href="https://github.com/OronNadiv/home-automation-ui">UI</a> - Front-end client using Angular-JS
+                    that interacts with the different API servers.
+                </li>
+            </ul>
+
+            <h2>
+                <a id="installation-instructions-for-the-server-micro-services" class="anchor"
+                   href="#installation-instructions-for-the-server-micro-services" aria-hidden="true"><span
+                        aria-hidden="true" class="octicon octicon-link"></span></a>Installation Instructions for the
+                Server Micro-Services</h2>
+
+            <p>Prerequisites:</p>
+
+            <ul>
+                <li>
+                    <a href="https://heroku.com">Create Heroku account</a>.
+                </li>
+                <li>Download and install <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>.</li>
+                <li>
+                    <a href="https://nodejs.org/en/">Node JS</a> 6.x (or higher).
+                </li>
+                <li>
+                    <a href="https://www.openssl.org/">OpenSSL</a> v1.0.2 (or higher)
+                </li>
+                <li><a href="https://elements.heroku.com/addons/heroku-postgresql">PostgreSQL DB</a></li>
+                <li><a href="https://elements.heroku.com/addons/rediscloud">Redis Cloud</a></li>
+                <li><a href="https://elements.heroku.com/addons/papertrail">Papertrail</a></li>
+                <li><p><a href="https://elements.heroku.com/addons/mailgun">Mailgun</a> (optional)</p></li>
+                <li><p>Step 1: Clone the server's repository to your local machine.</p></li>
+            </ul>
+
+            <pre><code>git clone &lt;repository git url&gt;</code></pre>
+
+            <ul>
+                <li>Step 2: Create a new Heroku app.</li>
+            </ul>
+
+            <pre><code>cd &lt;cloned repository root directory&gt;
+heroku apps:create &lt;app name&gt;</code></pre>
+
+            <ul>
+                <li>Step 3: Push the cloned repository to the newly created Heroku app.</li>
+            </ul>
+
+            <pre><code>git push heroku master</code></pre>
+
+            <ul>
+                <li>Step 4: Each server app requires a set of environment variables in order to run. Set the required
+                    environment variables using the following command:
+                </li>
+            </ul>
+
+            <pre><code>heroku config:set &lt;KEY&gt;=&lt;VALUE&gt;</code></pre>
+
+            <ul>
+                <li>Step 5: Scale the web dyno by running the following command:</li>
+            </ul>
+
+            <pre><code>heroku ps:scale web=1 -a &lt;app name&gt;</code></pre>
+
+            <h2>
+                <a id="installation-instructions-for-the-raspberry-pi-clients" class="anchor"
+                   href="#installation-instructions-for-the-raspberry-pi-clients" aria-hidden="true"><span
+                        aria-hidden="true" class="octicon octicon-link"></span></a>Installation Instructions for the
+                Raspberry Pi Clients</h2>
+
+            <ul>
+                <li>Step 1: Download and install <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a>.
+                    Recommended: Raspbian Jessie Light.
+                </li>
+                <br/>
+                <li>Step 2: Find the IP address of the raspberry and connect to it using SSH.
+                    <pre><code>ssh pi@&lt;IP address&gt;</code></pre>
+                    <p>
+                        Username: <code>pi</code>.
+                        <br/>Password: <code>raspberry</code>.
+                    </p>
+                    <p>It is a highly recommended to change the default password
+                        using the following command:
+                    <pre><code>passwd</code></pre>
+                    </p>
+                </li>
+                <li>Step 3: Download and install updates.
+                    <pre><code>sudo apt-get update
+sudo apt-get -y upgrade</code></pre>
+                </li>
+                <li>Step 4: Setup WiFi. Open the wpa-supplicant configuration file in nano:
+                    <pre><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</code></pre>
+                    <p>Go to the bottom of the file and add the following:</p>
+                    <pre><code>network={
+  ssid="&lt;network name&gt;"
+  psk="&lt;network password&gt;"
+}</code></pre>
+                </li>
+                <li>Step 5: Download and install git.
+                    <pre><code>sudo apt-get install git</code></pre>
+                </li>
+                <li>Step 6: Install NVM.
+                    <pre><code>cd ~
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+source ~/.profile
+nvm install v6</code></pre>
+
+                    <p>Node JS v6.4.0 is the latest version that ran successfully on Raspbian.</p>
+
+                </li>
+                <li>Step 7: Install quick2wire-gpio-admin.
+                    <pre><code>git clone https://github.com/sli/quick2wire-gpio-admin.git
+cd quick2wire-gpio-admin
+make
+sudo make install
+sudo adduser $USER gpio
+cd ~</code></pre>
+                </li>
+                <li>
+                    Step 8: Clone one or more of the raspberry pi client repositories.
+                    <pre><code>git clone git://github.com/OronNadiv/alarm-siren-raspberry-client.git
+git clone git://github.com/OronNadiv/camera-raspberry-client.git
+git clone git://github.com/OronNadiv/garage-door-raspberry-client.git
+git clone git://github.com/OronNadiv/motion-sensor-raspberry-client.git</code></pre>
+                    <p>From within the cloned repositories, install the required dependencies:
+                    <pre><code>export NODE_ENV=production
+npm install</code></pre>
+                    </p>
+                </li>
+
+                <li>Step 9: Install execution script. Each raspberry pi client repository contain an execution template
+                    script. Copy and edit the script in nano.
+                    <pre><code>cp &lt;repository&gt;/scripts/*.sh ~</code></pre>
+                </li>
+                <li>Step 10: Download and install Supervisor. Then copy the configuration file.
+                    <pre><code>sudo apt-get install supervisor
+cp &lt;repository&gt;/scripts/*.conf /etc/supervisor/conf.d/</code></pre>
+                    </p>
+                    </ol>
+                </li>
+
+                <h2>
+                    <a id="generating-private-and-public-keys" class="anchor"
+                       href="#generating-private-and-public-keys"
+                       aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generating
+                    private and public keys</h2>
+
+                <p>Both the servers and clients require public and private keys in order to uniquely identify
+                    them when connecting to the authentication api server.
+                </p>
+                <p>Here are the instructions to create them:</p>
+
+                <pre><code>openssl genrsa -out private_key.pem 2048
+openssl rsa -in private_key.pem -pubout -out public_key.pem</code></pre>
+            </ul>
+        </section>
+
+        <aside id="sidebar">
+            <p class="repo-owner"><a href="https://github.com/OronNadiv/home-automation"></a> Maintained by <a
+                    href="https://github.com/OronNadiv">OronNadiv</a>.</p>
+
+            <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme
+                by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+    </div>
+</div>
+</body>
+</html>
