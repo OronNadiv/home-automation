@@ -44,7 +44,6 @@
             <h4>
                 <a id="raspberry-pi-clients" class="anchor" href="#raspberry-pi-clients" aria-hidden="true"><span
                         aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry Pi Clients</h4>
-
             <ul>
                 <li>
                     <a href="https://github.com/OronNadiv/alarm-siren-raspberry-client">Alarm Siren Raspberry Pi
@@ -73,7 +72,6 @@
                 </a>
                 Servers
             </h4>
-
             <ul>
                 <li>
                     <a href="https://github.com/OronNadiv/alarm-system-api">Alarm System API</a> - Back-end server that
@@ -93,7 +91,19 @@
                             armed.
                         </li>
                     </ul>
-
+                </li>
+                <li>
+                    <a href="https://github.com/OronNadiv/authentication-api">Authentication</a> - Back-end server that
+                    handles authentications and permissions. Main functions are:
+                    <ul>
+                        <li>
+                            It issues JWT (Javascript Web Token) to other back-end servers, UI and raspberry pi
+                            clients.
+                        </li>
+                        <li>
+                            It allows creation of new users, enabling/disabling access, changing permissions and more.
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="https://github.com/OronNadiv/camera-api">Camera API</a> - Back-end server that handles the
@@ -122,25 +132,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="https://github.com/OronNadiv/authentication-api">Authentication</a> - Back-end server that
-                    handles authentications and permissions. Main functions are:
-                    <ul>
-                        <li>
-                            It issues JWT (Javascript Web Token) to other back-end servers, UI and raspberry pi
-                            clients.
-                        </li>
-                        <li>
-                            It allows creation of new users, enabling/disabling access, changing permissions and more.
-                        </li>
-                    </ul>
-                </li>
-                <li>
                     <a href="https://github.com/OronNadiv/notifications-api">Notifications</a> - Back-end server that
                     handles outgoing communications. Main functions are:
                     <ul>
                         <li>
-                            It sends emails using Mailgun if garage door is left open, garage door is opening or a
-                            motion is detected while alarm is armed.
+                            It sends emails using Mailgun if garage door is left open, garage door is opening or motion
+                            is detected while alarm is armed.
                         </li>
                         <li>
                             It sends text messages if one of the previous conditions are met.
@@ -153,7 +150,7 @@
                 <li>
                     <a href="https://github.com/OronNadiv/push-api">Push</a> - Back-end server that handles Socket-IO
                     communication between the clients and the other API servers. It uses Redis's Pub-Sub mechanism for
-                    scalability and distributes architecture.
+                    scalability and distributed architecture.
                 </li>
                 <br/>
                 <li>
