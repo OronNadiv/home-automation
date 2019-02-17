@@ -221,11 +221,10 @@ heroku apps:create &lt;app name&gt;</code></pre>
 
             <ul>
                 <li>Step 1: Download and install <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a>.
-                    Recommended: Raspbian Jessie Light.
+                    Recommended: Raspbian Stretch Light.
                 </li>
-                <br/>
-                <li>Step 2: Find the IP address of the raspberry pi and connect to it using SSH.
-                    <pre><code>ssh -o PubkeyAuthentication=no pi@&lt;IP address&gt;</code></pre>
+                
+                <li>Step 2: Login via LAN:
                     <p>
                         Username: <code>pi</code>.
                         <br/>Password: <code>raspberry</code>.
@@ -235,14 +234,13 @@ heroku apps:create &lt;app name&gt;</code></pre>
                     <pre><code>passwd</code></pre>
                     </p>
                 </li>
-                <li>Step 3: Setup WiFi. Open the wpa-supplicant configuration file in nano:
-                    <pre><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</code></pre>
-                    <p>Go to the bottom of the file and add the following:</p>
-                    <pre><code>network={
-  ssid="&lt;network name&gt;"
-  psk="&lt;network password&gt;"
-}</code></pre>
+
+                <li>Step 3: Enable SSH, enable camera, setup locale, change timezone, change username and password, and setup wifi using the following command:
+                    <p>
+                    <pre><code>sudo raspbi-config</code></pre>
+                    </p>
                 </li>
+
                 <li>Step 4: Download and install updates.
                     <pre><code>sudo apt-get update
 sudo apt-get -y upgrade
