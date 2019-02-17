@@ -235,12 +235,7 @@ heroku apps:create &lt;app name&gt;</code></pre>
                     <pre><code>passwd</code></pre>
                     </p>
                 </li>
-                <li>Step 3: Download and install updates.
-                    <pre><code>sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt-get -y dist-upgrade</code></pre>
-                </li>
-                <li>Step 4: Setup WiFi. Open the wpa-supplicant configuration file in nano:
+                <li>Step 3: Setup WiFi. Open the wpa-supplicant configuration file in nano:
                     <pre><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</code></pre>
                     <p>Go to the bottom of the file and add the following:</p>
                     <pre><code>network={
@@ -248,16 +243,21 @@ sudo apt-get -y dist-upgrade</code></pre>
   psk="&lt;network password&gt;"
 }</code></pre>
                 </li>
+                <li>Step 4: Download and install updates.
+                    <pre><code>sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade</code></pre>
+                </li>
                 <li>Step 5: Download and install git.
                     <pre><code>sudo apt-get install git</code></pre>
                 </li>
                 <li>Step 6: Install NVM.
                     <pre><code>cd ~
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 source ~/.profile
-nvm install v6</code></pre>
+nvm install v10</code></pre>
 
-                    <p>Node JS v6.4.0 is the latest version that ran successfully on Raspbian.</p>
+                    <p>Node JS v10.15.1 is the latest version that ran successfully on Raspbian.</p>
 
                 </li>
                 <li>Step 7: Install quick2wire-gpio-admin.
