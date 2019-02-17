@@ -258,16 +258,8 @@ nvm install v10</code></pre>
                     <p>Node JS v10.15.1 is the latest version that ran successfully on Raspbian.</p>
 
                 </li>
-                <li>Step 7: Install quick2wire-gpio-admin.
-                    <pre><code>git clone https://github.com/sli/quick2wire-gpio-admin.git
-cd quick2wire-gpio-admin
-make
-sudo make install
-sudo adduser $USER gpio
-cd ~</code></pre>
-                </li>
                 <li>
-                    Step 8: Clone one or more of the raspberry pi client repositories.
+                    Step 7: Clone one or more of the raspberry pi client repositories.
                     <pre><code>git clone git://github.com/OronNadiv/alarm-siren-raspberry-client.git
 git clone git://github.com/OronNadiv/camera-raspberry-client.git
 git clone git://github.com/OronNadiv/garage-door-raspberry-client.git
@@ -278,11 +270,11 @@ npm install</code></pre>
                     </p>
                 </li>
 
-                <li>Step 9: Install execution script. Each raspberry pi client repository contains an execution template
+                <li>Step 8: Install execution script. Each raspberry pi client repository contains an execution template
                     script. Copy and edit the script in nano.
                     <pre><code>cp &lt;repository&gt;/scripts/*.sh ~</code></pre>
                 </li>
-                <li>Step 10: Download and install Supervisor. Then copy the configuration file.
+                <li>Step 9: Download and install Supervisor. Then copy the configuration file.
                     <pre><code>sudo apt-get install supervisor
 sudo cp &lt;repository&gt;/scripts/*.conf /etc/supervisor/conf.d/</code></pre>
                     </p>
