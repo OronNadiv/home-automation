@@ -223,7 +223,7 @@ heroku apps:create &lt;app name&gt;</code></pre>
                 <li>Step 1: Download and install <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a>.
                     Recommended: Raspbian Stretch Light.
                 </li>
-                
+
                 <li>Step 2: Login via LAN:
                     <p>
                         Username: <code>pi</code>.
@@ -235,10 +235,14 @@ heroku apps:create &lt;app name&gt;</code></pre>
                     </p>
                 </li>
 
-                <li>Step 3: Enable SSH, enable camera, setup locale, change timezone, change username and password, and setup wifi using the following command:
+                <li>Step 3: Enable SSH, enable camera, setup locale, change timezone, change username and password, and
+                    setup wifi using the following command:
                     <p>
                     <pre><code>sudo raspbi-config</code></pre>
                     </p>
+                    Once SSH is enabled, you can now find the IP address of the raspberry pi and connect to it using the
+                    following command:
+                    <pre><code>ssh -o PubkeyAuthentication=no pi@&lt;IP address&gt;</code></pre>
                 </li>
 
                 <li>Step 4: Download and install updates.
